@@ -25,10 +25,10 @@ We are going to use the *gitflow* branch structure.
   Let's describe the most usual git commands to be run.
   
   1. **First interaction with the repo**
-    - `git clone https://github.com/BogdanVM/proiect-ip`;
-    -  You only run this command to download the repo on your local machine. 
-    -  After this, a folder will be created. That folder will be your workplace when you need to change something to the project.
+      - `git clone https://github.com/BogdanVM/proiect-ip`;
+      -  You only run this command to download the repo on your local machine. 
+      -  After this, a folder will be created. That folder will be your workplace when you need to change something to the project.
     
   2. **Move to another branch (without creating a new one)**
-    - `git checkout branch_name`;
-    -   
+      - `git checkout branch_name`;
+      -  
