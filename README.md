@@ -31,4 +31,3 @@ We are going to use the *gitflow* branch structure.
     
   2. **Move to another branch (without creating a new one)**
       - `git checkout branch_name`;
-      -  
