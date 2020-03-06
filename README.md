@@ -10,6 +10,13 @@ Our team is formed of:
 - Serban Denisa.
 
 ## Github Repository
-This is the official for our project at Software Engineering at the University of Bucharest.
+This is the official repository for our project at Software Engineering at the University of Bucharest.
 
 #### Branch Structure
+We are going to use the *gitflow* branch structure.
+
+  ###### Workflow
+  - `master` = the main branch where there will always be a fully working, ready for distribution version of the software;
+  - `dev` = the development branch. This is also a fully working version of the app, but there are still features to be added;
+  - `feature/feature-name` = each developer is working on a different branch for each feature. This way we avoid bugs interfering with our `dev` and `master` branches. When work is done on a feature, the branch is merged with the development branch;
+  - `fix/fix-name` = same process as with the features. Every time a fix is required, a new branch is created and when the problem is fixed, the branch is merged with the development branch.
