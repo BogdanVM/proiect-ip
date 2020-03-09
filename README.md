@@ -5,10 +5,10 @@
 Echipa noastra este formata din:
 
 -   Vilculescu Bogdan ([BogdanVM](https://github.com/BogdanVM));
--   Apostu Robert ([GreenReach](https://github.com));
--   Mortoiu Claudia;
--   Jurcaneanu Ionut;
--   Martac Dana;
+-   Apostu Robert ([GreenReach](https://github.com/GreenReach));
+-   Mortoiu Claudia ([Claudia210](https://github.com/Claudia210));
+-   Jurcaneanu Ionut ([Garbulinski](https://github.com/Garbulinski));
+-   Martac Dana ([Dana-Maria](https://github.com/Dana-Maria));
 -   Dumitru Victor;
 -   Serban Denisa.
 
