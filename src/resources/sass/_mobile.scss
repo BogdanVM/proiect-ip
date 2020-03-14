@@ -1,0 +1,11 @@
+@use 'config';
+
+@include config.mediaMd {
+    #sidebar {
+        margin-left: -250px;
+
+        .active {
+            margin-left: 0;
+        }
+    }
+}
