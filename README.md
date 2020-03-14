@@ -1,5 +1,17 @@
 # Proiect Ingineria Programarii
 
+## Cuprins
+
+1. [Echipa](#echipa)
+2. [Github Repository](#github-repository)
+    - [Structura branch-urilor](#branches-structure)
+    - [Lista de comenzi](#comenzi)
+    - [Exemplu de comenzi uzuale](#workflow)
+    - [Probleme uzuale](#probleme)
+3. [Codul sursa](#codul-sursa)
+    - [Structura proiectului](#structura-proiectului)
+    - [Ce trebuie modificat / adăugat?](#feature-development)
+
 ## Echipa
 
 Echipa noastra este formata din:
@@ -16,18 +28,14 @@ Echipa noastra este formata din:
 
 Acesta este repository-ul oficial pentru proiectul nostru la Ingineria Programarii la _Facultatea de Matematică și Informatică_ din cadrul _Universității din București_
 
-#### Branches
-
-Vom folosi structura de tip _gitflow_ pentru branches.
-
-##### Structura
+#### Branches structure
 
 -   `master` = branch-ul principal unde se va afla în permanență o versiune complet funcțională a produsului, gata de distribuție;
 -   `dev` = branch-ul de dezvoltare. Și aici se va afla tot o versiune funcțională, dar aici se vor adăuga feature-urile la care se lucrează curent;
 -   `feature/feature-name` = fiecare feature important al aplicației va avea propriul branch. Astfel, evităm ca diverse bug-uri să afecteze branch-urile `dev` și `master`. În momentul în care se termină lucrul la un feature, branch-ul este _merged_ cu branch-ul de dezvoltare;
 -   `fix/fix-name` = același proces ca pentru branch-urile de feature-uri. De fiecare dată când un _fix_ este necesar, un nou branch este creat și pe acel branch se lucrează până când problema e rezolvată. Apoi, branch-ul de fix este _merged_ cu branch-ul `dev`.
 
-##### Comenzi
+#### Comenzi
 
 Acestea sunt cele mai folosite comenzi de _git_.
 
@@ -104,7 +112,7 @@ Acestea sunt cele mai folosite comenzi de _git_.
 
     - După ce este gata lucrul la un branch, se face merge între `dev` și `feature/feature-name`.
 
-##### Workflow
+#### Workflow
 
 ```git
 git clone https://github.com/BogdanVM/proiect-ip
@@ -130,7 +138,7 @@ git pull origin dev
 // se repetă procesul descris cu fiecare feature (mai puțin // partea de clonare a repo-ului)
 ```
 
-##### Probleme
+#### Probleme
 
 Să vedem ce probleme pot apărea când lucrăm cu _git_
 
@@ -171,3 +179,53 @@ Să vedem ce probleme pot apărea când lucrăm cu _git_
         ```
 
     - După aceea, nu ar trebui să mai fie probleme cu _pull request-ul_.
+
+## Codul sursa
+
+#### Structura proiectului
+
+Directorul `src` conține:
+
+-   `index.html`
+
+    -   Pagina html principală de care se vor lega toate celelalte.
+    -   Conține un meniu lateral prin care se navighează către toate celelalte pagini.
+    -   Acest fișier nu trebuie modificat.
+
+-   `resources`
+
+    -   `pages`
+        -   Aici se vor afla paginile html necesare.
+    -   `js`
+        -   Aici se va crea câte un folder pentru fiecare feature.
+        -   În fiecare folder ar trebui să se afle fișierele de _js_ necesare pentru feature.
+        -   Pentru mai multe detalii, să se verifice feature-ul `boids`.
+    -   `sass`
+        -   Aici se vor afla fișierele de tip _sass_ (cu extensia _.scss_).
+        -   Acesta este css precompilat.
+        -   Nu vor fi modificate fișierele din acest folder.
+
+-   `public`
+    -   `css`
+        -   Aici se va afla fișierul _css_ compilat din fișierele cu extensia _.scss_ din `resources/sass`.
+        -   Nu vor fi modificate fișierele din acest folder.
+
+#### Feature development
+
+Când se începe lucrul la un feature, se va lucra doar cu folderele următoare: `resources/pages` și `resources/js`.
+
+Procesul este următorul:
+
+1.  Se creează fișierele de js necesare în folderul `js` din `resources`.
+2.  Se adaugă în fișierul html corespunzător feature-ului din folderul `pages` tag-urile de tip `<script> </script>` pentru acele fișiere js.
+
+    **_Exemplu:_**
+
+    -   Lucrez la feature-ul _boids_.
+    -   Am creat fișierele js `boid.js` și `sketch.js` unde lucrez la feature.
+    -   Mă duc în fișierul `boids.html` din `pages` și adaug următoarele linii de cod în tag-ul `<head>`:
+
+    ```html
+    <script src="../js/boids/boid.js"></script>
+    <script src="../js/boids/sketch.js"></script>
+    ```
