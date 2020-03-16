@@ -1,9 +1,3 @@
-// Flocking
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/124-flocking-boids.html
-// https://youtu.be/mhjuuHl6qHM
-// https://editor.p5js.org/codingtrain/sketches/ry4XZ8OkN
-
 class Boid {
   constructor() {
     this.position = createVector(random(width), random(height));
@@ -12,6 +6,10 @@ class Boid {
     this.acceleration = createVector();
     this.maxForce = 1;
     this.maxSpeed = 4;
+    
+    //MY PART
+    this.handPosX = width/2;
+    this.handPosY = height/2;
   }
 
   edges() {
@@ -106,17 +104,20 @@ class Boid {
   }
   
   //MY PART
-  mouseForce(){
+  moveToHand(){
 
-    let boidDirection = createVector(mouseX - this.position.x ,mouseY - this.position.y);  
+    let boidDirection = createVector(this.handPosX - this.position.x ,this.handPosY - this.position.y);  
     boidDirection.normalize();
     
-    let mouseDirectionDist =  dist(
+    /* OPTIONAL, de facut viteza proportionala cu distanta
+    let handDirectionDist =  dist(
         this.position.x,
         this.position.y,
-        mouseX,
-        mouseY
+        this.handPosX,
+        this.handPosX
       );
+      */
+      
     boidDirection.div(5);
     boidDirection.setMag(this.maxSpeed);
     boidDirection.sub(this.velocity);
@@ -124,22 +125,36 @@ class Boid {
     
     return boidDirection;
   }
+  
+  //MY PART
+  updateHandPosition(posX, posY) {
+  
+    this.handPosX = posX;
+    this.handPosY = posY;
+  }
 
   flock(boids) {
     let alignment = this.align(boids);
     let cohesion = this.cohesion(boids);
     let separation = this.separation(boids);
-    let mouseDirectionForce = this.mouseForce();
-
+    
+    //MY PART
+    let handDirectionForce = this.moveToHand();
+    alignment.mult(alignValue);
+    cohesion.mult(cohesionValue);
+    separation.mult(separationValue);
+    
+   /* Folosit pt testare
     alignment.mult(alignSlider.value());
     cohesion.mult(cohesionSlider.value());
     separation.mult(separationSlider.value());
-
+    */
+    
     this.acceleration.add(alignment);
     this.acceleration.add(cohesion);
     this.acceleration.add(separation);
-    this.acceleration.add(mouseDirectionForce);
-    //MY PART
+    this.acceleration.add(handDirectionForce);  //MY PART
+
   }
 
   update() {
