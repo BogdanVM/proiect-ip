@@ -8,7 +8,7 @@ class PerlineCircle {
     show() {
         noiseSeed(99);
         background(0);
-        translate(width / 2, height / 2);
+        translate(mouseX, mouseY);
         stroke(255);
         noFill();
 
@@ -18,11 +18,17 @@ class PerlineCircle {
             const xoff = map(cos(i + this.phase), -1, 1, 0, noiseMax);
             const yoff = map(sin(i + this.phase), -1, 1, 0, noiseMax);
 
-            const r = map(noise(xoff, yoff, this.zoff), 0, 1, 100, height / 2);
+            const r = map(
+                noise(xoff / 3, yoff / 3, this.zoff / 3),
+                0,
+                1,
+                100,
+                height / 2
+            );
             const x = r * cos(i);
             const y = r * sin(i);
 
-            vertex(x, y);
+            vertex(x / 4, y / 4);
         }
         endShape(CLOSE);
 
