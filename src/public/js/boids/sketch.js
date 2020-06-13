@@ -6,33 +6,23 @@
 // https://youtu.be/mhjuuHl6qHM
 // https://editor.p5js.org/codingtrain/sketches/ry4XZ8OkN
 
-const flock = [];
+let flock = [];
 
-let alignSlider, cohesionSlider, separationSlider;
-
-function setup() {
-    const cnv = createCanvas(640, 360);
-    cnv.parent('content');
-
-    alignSlider = createSlider(0, 2, 1, 0.1);
-    cohesionSlider = createSlider(0, 2, 1, 0.1);
-    separationSlider = createSlider(0, 2, 1, 0.1);
-
-    alignSlider.parent('content');
-    cohesionSlider.parent('content');
-    separationSlider.parent('content');
-
-    for (let i = 0; i < 100; i++) {
-        flock.push(new Boid());
-    }
-}
-
-function draw() {
-    background(51);
+function drawBoids() {
+    clear();
+    background('rgba(0,0,0, 0)');
     for (let boid of flock) {
         boid.edges();
         boid.flock(flock);
         boid.update();
         boid.show();
+    }
+}
+
+function SetupBoids() {
+    colorMode(RGB);
+    flock = [];
+    for (let i = 0; i < 50; i++) {
+        flock.push(new Boid());
     }
 }

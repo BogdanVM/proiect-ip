@@ -1,22 +1,32 @@
-let r1 = 125;
-let r2 = 125;
-let m1 = 10;
-let m2 = 10;
-let a1 = 0;
-let a2 = 0;
-let a1_v = 0;
-let a2_v = 0;
-let g = 1;
+let r1;
+let r2;
+let m1;
+let m2;
+let a1;
+let a2;
+let a1_v;
+let a2_v;
+let g;
 
-let px2 = -1;
-let py2 = -1;
+let px2;
+let py2;
 let cx, cy;
 
 let buffer;
 
-function setup() {
-    const cnv = createCanvas(600, 600);
-    cnv.parent('content');
+function SetupPendule() {
+    r1 = 125;
+    r2 = 125;
+    m1 = 10;
+    m2 = 10;
+    a1 = 0;
+    a2 = 0;
+    a1_v = 0;
+    a2_v = 0;
+    g = 1;
+    px2 = -1;
+    py2 = -1;
+
     pixelDensity(1);
 
     a1 = PI / 2;
@@ -24,16 +34,21 @@ function setup() {
     cx = mouseX;
     cy = mouseY;
 
+    delete buffer;
+
     buffer = createGraphics(width, height);
-    buffer.background(175);
-    buffer.translate(cx, cy);
+    buffer.background('rgba(0, 0, 0, 0)');
 }
 
-function draw() {
+function DrawPendule() {
+    clear();
+    const xPos = ((px2 + mouseX) * 255) / width;
+    const yPos = ((py2 + mouseY) * 255) / height;
+
     cx = mouseX;
     cy = mouseY;
-    
-    background(175);
+
+    background(0, 0, 0, 0);
     imageMode(CORNER);
     image(buffer, 0, 0, width, height);
 
@@ -52,8 +67,8 @@ function draw() {
     let a2_a = (num1 * (num2 + num3 + num4)) / den;
 
     translate(cx, cy);
-    stroke(0);
-    strokeWeight(2);
+    stroke(xPos, yPos, xPos / yPos);
+    strokeWeight(5);
 
     let x1 = r1 * sin(a1);
     let y1 = r1 * cos(a1);
@@ -76,7 +91,8 @@ function draw() {
     a1 += a1_v;
     a2 += a2_v;
 
-    buffer.stroke(0);
+    buffer.stroke(xPos, yPos, xPos / yPos);
+    buffer.strokeWeight(2);
     if (frameCount > 1) {
         buffer.line(px2 + mouseX, py2 + mouseY, x2 + mouseX, y2 + mouseY);
     }

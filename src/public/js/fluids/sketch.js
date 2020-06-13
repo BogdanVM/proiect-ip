@@ -1,22 +1,11 @@
 let fluid;
 
-//Folosit pt testare
-function setup() {
-    const cnv = createCanvas(600, 600);
-    cnv.parent('content');
-    //frameRate(22);
-    SetupFluids();
-}
-
-//Folosit pt testare
-function draw() {
-    DrawFluids(mouseX, mouseY);
-}
-
 function SetupFluids() {
+    delete fluid;
     fluid = new Fluid(0.2, 0, 0.0000001);
 }
 function DrawFluids(handPosX, handPosY) {
+    background('rgba(0, 0, 0, 0)');
     stroke(51);
     strokeWeight(2);
 

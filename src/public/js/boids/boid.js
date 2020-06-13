@@ -133,9 +133,9 @@ class Boid {
         let separation = this.separation(boids);
         let mouseDirectionForce = this.mouseForce();
 
-        alignment.mult(alignSlider.value());
-        cohesion.mult(cohesionSlider.value());
-        separation.mult(separationSlider.value());
+        alignment.mult(0.6);
+        cohesion.mult(0.3);
+        separation.mult(1.2);
 
         this.acceleration.add(alignment);
         this.acceleration.add(cohesion);
@@ -152,8 +152,11 @@ class Boid {
     }
 
     show() {
+        const xPos = this.position.x * 255 / width;
+        const yPos = this.position.y * 255 / height;
+
         strokeWeight(8);
-        stroke(255);
+        stroke(xPos, yPos, xPos / yPos);
         point(this.position.x, this.position.y);
     }
 }

@@ -48,11 +48,47 @@
 
         <!-- P5 Js -->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
+
+        <script src="js/main.js"></script>
+
+        <!-- Pong Js Files  -->
+        <script src="js/pong/paddle.js"></script>
+        <script src="js/pong/puck.js"></script>
+        <script src="js/pong/sketch.js"></script>
+
+        <!-- Boid JS files  -->
+        <script src="js/boids/boid.js"></script>
+        <script src="js/boids/sketch.js"></script>
+
+        <!-- Fireworks JS files  -->
+        <script src="js/fireworks/particle.js"></script>
+        <script src="js/fireworks/firework.js"></script>
+        <script src="js/fireworks/sketch.js"></script>
+
+        <!-- Fluids JS files  -->
+        <script src="js/fluids/fluid_utils.js"></script>
+        <script src="js/fluids/fluid.js"></script>
+        <script src="js/fluids/sketch.js"></script>
+
+        <!-- Pendule JS files  -->
+        <script src="js/pendulum/sketch.js"></script>
+
+        <!-- Perline Circles JS files  -->
+        <script src="js/perline_circles/perline_circle.js"></script>
+        <script src="js/perline_circles/sketch.js"></script>
     </head>
     <body>
         <div class="wrapper">
             <%- include('components/sidebar'); -%>
-            <div id="content"></div>
+            <div id="content">
+                <div id="front-container"></div>
+
+                <div id="behind-container">
+                    <video autoplay="true" id="cameraVideo"></video>
+                </div>
+            </div>
         </div>
     </body>
+
+    <script src="js/camera.js"></script>
 </html>
