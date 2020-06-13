@@ -15,7 +15,7 @@
         />
 
         <!-- Own stylesheet  -->
-        <link rel="stylesheet" href="../../public/css/app.css" />
+        <link rel="stylesheet" href="css/app.css" />
 
         <!-- Font Awesome -->
         <link
@@ -48,49 +48,10 @@
 
         <!-- P5 Js -->
         <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
-
-        <!-- Perline Circles JS files  -->
-        <script src="../js/perline_circles/perline_circle.js"></script>
-        <script src="../js/perline_circles/sketch.js"></script>
     </head>
     <body>
         <div class="wrapper">
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <h1>Grand App Name</h1>
-                </div>
-
-                <ul class="list-unstyled components">
-                    <li>
-                        <a href="../../index.html"> Home </a>
-                    </li>
-
-                    <li>
-                        <a href="perline_circles.html"> Perline Circles </a>
-                    </li>
-
-                    <li>
-                        <a href="boids.html"> Boids </a>
-                    </li>
-
-                    <li>
-                        <a href="fluids.html"> Fluids </a>
-                    </li>
-
-                    <li>
-                        <a href="pong.html"> Pong </a>
-                    </li>
-
-                    <li>
-                        <a href="fireworks.html"> Fireworks </a>
-                    </li>
-
-                    <li>
-                        <a href="pendule.html"> Pendule </a>
-                    </li>
-                </ul>
-            </nav>
-
+            <%- include('components/sidebar'); -%>
             <div id="content"></div>
         </div>
     </body>
