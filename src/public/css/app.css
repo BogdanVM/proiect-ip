@@ -89,5 +89,28 @@
     text-decoration: none;
     transition: all 0.3s;
   }
+
+  #front-container {
+    display: block;
+    z-index: 5;
+    position: relative;
+
+    background: transparent; 
+    height: 480px;
+  }
   
+  #behind-container {
+    position: relative;
+    top: -480px;
+  }
+
+  #behind-container video {
+    display: block;
+    z-index: 3;
+  }
+
+  #content {
+      padding: 0;
+      margin: 0;
+  }
   /*# sourceMappingURL=app.css.map */

@@ -72,9 +72,11 @@ class Fluid {
         let x = i * SCALE;
         let y = j * SCALE;
         let d = this.density[IX(i, j)];
-        fill(d);
-        noStroke();
-        rect(x, y, SCALE, SCALE);
+        if (d > 50) {
+            fill(d);
+            noStroke();
+            rect(x, y, SCALE, SCALE);
+        }
       }
     }
   }

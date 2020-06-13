@@ -4,16 +4,14 @@ let zoff = 0;
 
 let perlineCircle;
 
-function setup() {
-    const cnv = createCanvas(600, 600);
-    cnv.parent('content');
+function SetupPerline() {
+    delete perlineCircle;
+    phase = 0;
+    zoff = 0;
 
-    slider = createSlider(0, 10, 5, 0.1);
-    slider.parent('content');
-
-    perlineCircle = new PerlineCircle(slider);
+    perlineCircle = new PerlineCircle();
 }
 
-function draw() {
+function DrawPerline() {
     perlineCircle.show();
 }

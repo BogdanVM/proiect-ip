@@ -57,7 +57,17 @@
         <div class="wrapper">
             <%- include('components/sidebar'); -%>
 
-            <div id="content"></div>
+            <div id="content">
+                <div id="front-container"></div>
+
+                <div id="behind-container">
+                    <video autoplay="true" id="cameraVideo">
+
+                    </video>
+                </div>
+            </div>
         </div>
     </body>
+
+    <script src="js/camera.js"></script>
 </html>
