@@ -1,5 +1,3 @@
-// import * as tf from '@tensorflow/tfjs';
-
 let currentEffect = 0;
 
 window.onload = () => {
